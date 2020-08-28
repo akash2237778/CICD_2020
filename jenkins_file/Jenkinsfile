@@ -16,5 +16,12 @@ pipeline{
                 sh 'cd jenkins_file && mvn package'
             }
         }
+        stage('package upload'){
+            steps{
+                sh 'git add .'
+                sh 'git commit -m "Commit from jenkins"'
+                sh 'git push origin jenkins_file'
+            }
+        }
     }
 }
